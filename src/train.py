@@ -64,13 +64,13 @@ class ProjectAgent:
         return self.greedy_action(self.model, observation)
 
     def save(self):
-        self.path = os.getcwd() + "\model.pth"
+        self.path = os.getcwd() + "/model.pth"
         torch.save(self.model.state_dict(), self.path)
         return 
 
     def load(self):
         device = torch.device('cpu')
-        self.path = os.getcwd() + "\model.pth"
+        self.path = os.getcwd() + "/model.pth"
         self.model = self.Mymodel()
         self.model.load_state_dict(torch.load(self.path, map_location=device))
         self.model.eval()
